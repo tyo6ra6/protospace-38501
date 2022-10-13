@@ -14,9 +14,10 @@ class PrototypesController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @prototype.comments.includes(:user)
+    @comments = @prototype.comments
   end
 
+  
   def create 
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
